@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .login-form {
+       height: 350px;
+       width: 350px;
+       background-color: rgb(255, 255, 255);
+       position: relative;
+       margin: 100px;
+       padding: 20px;
+       box-shadow:    3px 3px 4px 2px rgb(255, 174, 93);
+     }
+     body{
+       background-color: rgb(252, 193, 134);
+     }
+     input[type=email], input[type=password] {
+       width: 80%;
+       padding: 10px 20px;
+       margin: 3px 0;
+       display: inline-block;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       box-sizing: border-box;
+     }
+     button[type=submit] {
+       width: 80%;
+       background-color: #d8a04c;
+       color: white;
+       padding: 14px 20px;
+       margin: 3px 0;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+     }
+    </style>
+</head>
+<body>
+    <center>
+<div class="login-form">
+  <h2>Welcome</h2>
+<form method="post" action="/login">
+      <input type="email" placeholder="Email Address" name="email" ><br><br>
+      <input type="password" placeholder="Password" name="password" ><br><br>
+       <button type="submit">Login Now</button><br><br>
+       <button type="submit"><a href="/users/register">New Registration</a></button>      
+  </div>
+</form>
+<p><%=(typeof alertMsg!='undefined')? alertMsg:''%></p>
+</div>
+      </center>
+</body>
+</html>

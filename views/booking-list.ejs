@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Catalog</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <style>
+
+       .list-group{
+            margin-top: 25px;
+            margin-right: 50%;
+            margin-left: 5px;
+        }
+
+    </style>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/library-list">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/logout">Logout </a>
+                </li>
+           
+              </ul>
+
+            </div>
+          </nav>
+
+          <div class = "booking-list">
+            
+            <form method="GET">
+            <%
+            if(bookData.length!=0){
+                bookData.forEach(function(data){
+            %>
+            
+            <div class="list-group">
+             <a class="list-group-item">
+                <p class="list-group-item-text"><%=data.book_name %></p>
+                <a href="/library/<%=library %>/book/<%=data.ID_book %>/user/<%=userdata %>" class='btn ' style='background-color: rgb(252, 193, 134);'>Remove from list</a>
+               
+            </a>
+            </div>
+            <%   }) %>
+            <% } else{ %>
+                <p>No Data Found</p>
+            <% } %>
+       
+           </div>
+
+          
+    </body>
+</html>

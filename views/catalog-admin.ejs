@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Catalog</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+
+    <style>
+       .input-blurb{
+           margin: 50px;
+       }
+
+        .library-catalog{
+            margin-left: 10px;
+            line-height: 0.8em;
+        }
+
+        .list-group{
+            margin-right: 250px;
+            padding: 10px;
+            line-height: 0.4em;
+        }
+
+        .form-control{
+            margin-right: 250px;
+        }
+    </style>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/library-list">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/logout">Logout </a>
+                </li>
+           
+              </ul>
+
+            </div>
+          </nav>
+
+          <form action="/admin/catalog/<%=library %>" method="POST">
+            <input class="form-control col-lg-2" type="text" placeholder="Author name" name='author_name'>
+            <input class="form-control col-lg-2" type="text" placeholder="Book name" name='book_name'>
+            <input class="form-control col-lg-2" type="text" placeholder="Category" name='category'>
+            <input class="form-control col-lg-2" type="text" placeholder="Blurb" name='blurb'>
+
+            <button type="submit" style='background-color: rgb(252, 193, 134);'>Add new book</button>
+        </form>
+               
+        <ul class="list-group">
+            <%
+            if(bookData.length!=0){
+                bookData.forEach(function(data){
+            %>
+            <li class="list-group-item"><p>
+            <%=data.author_name %>
+            <a>"<%=data.book_name %>"</a>
+
+            </p>
+
+        </li>
+            <%   }) %>
+                <% } else{ %>
+                    <p>No Data Found</p>
+                <% } %>
+                </ul>
+    </body>
+</html>

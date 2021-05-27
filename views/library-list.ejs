@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Library list</title>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </head>
+    <style type="text/css">
+
+        .library-list {
+            position:relative; 
+            margin-top:35px;
+            margin-left: 35px;
+            line-height: 0.8em;
+        }
+
+        .dropdown {
+            margin-right: 10px;
+        }
+
+    </style>
+
+    <body>
+ 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/library-list">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/logout">Logout </a>
+                  </li>
+
+              </ul>
+
+            <p class='text-right' style='margin-top: 10px;'><%=userData2 %> </p> 
+              </div>
+              </nav>
+
+          <div class = "library-list">
+            
+            <!--   var obj =  "<%= userData %>";
+            document.write(obj); -->
+            <form method="GET">
+            <%
+            if(userData.length!=0){
+            userData.forEach(function(data){
+            %>
+            
+            <p>
+                <%=data.name %><br><br>
+                <%=data.address %><br><br>
+                
+               <!-- <a href="/catalog/<%= data.ID_library %>" method ='GET'>Open library</a> -->
+                <a href="/catalog/<%= data.ID_library %>" class='btn ' style='background-color: rgb(252, 193, 134);' method ='GET'>Open library</a>
+               
+            </p>
+            <%   }) %>
+            <% } else{ %>
+                <p>No Data Found</p>
+            <% } %>
+       
+           </div>
+
+
+        
+    </body>
+</html>

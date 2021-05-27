@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <center>
+      <h1>Register now</h1>
+    <div class = 'registration'>
+      <form action="/users/register" method="POST">
+      <input type='text' placeholder="First Name" name='fname'><br><br>
+      <input type='text' placeholder="Email address" name='email'><br><br>
+      <input type='text' placeholder="City" name='city'><br><br>
+      <input type='text' placeholder="Address" name='address'><br><br>
+      <input type='text' placeholder="Password" name='password'><br><br>
+      <input type='text' placeholder="Confirm password" name='confirm_password'><br><br>
+      <button type="submit">Submit</button>
+      </form>
+    </div>
+    <p> <%=(typeof alertMsg!='undefined')? alertMsg:''%></p>
+  </center>
+  </body>
+</html>
